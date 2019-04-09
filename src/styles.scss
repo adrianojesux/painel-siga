@@ -1,1 +1,226 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:500|Varela+Round');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+}
+
+.grid-6{
+    flex: 1;
+    max-width: 50%;
+    padding: 0;
+}
+
+.line{
+    width: 100%;
+    height: auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+h2.title-page{
+    font-family: 'Varela Round', sans-serif !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+
+
+h2.title-item{
+    font-family: 'Varela Round', sans-serif !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+
+p.detail-sm{
+    font-family: 'Varela Round', sans-serif !important;
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+label{
+    font-family: 'Varela Round', sans-serif !important;
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+
+.form-control{
+    border: 0;
+    border-radius: 0px !important;
+    background: transparent;
+    background-color: transparent;
+    border-bottom: solid 2px #ccc;
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+.form-control:focus{
+    border: 0;
+    border-bottom: solid 2px #26d144;
+    box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    cursor:pointer;
+    display:block;
+    width:8px;
+    color: #333;
+    text-align:center;
+    position:relative;
+}
+   input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+   margin: 0; 
+}
+
+/* Animações */
+
+/* Slide to Right */
+
+.slide-to-right{
+    animation: slidetoright 2s;
+}
+
+@keyframes slidetoright{
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide to Left */
+
+.slide-to-left{
+    animation: slide-to-left 2s;
+}
+
+@keyframes slide-to-left{
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Slide to BOTTOM */
+
+.slide-to-bottom{
+    animation: slide-to-bottom 2s;
+}
+
+@keyframes slide-to-bottom{
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide to TOP */
+
+.slide-to-top{
+    animation: slide-to-top 2s;
+}
+
+@keyframes slide-to-top{
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade Out */
+
+.fade-out{
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+    display: none;
+    transition: 2ms;
+}
+
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0;  }
+}
+
+/* Fade IN */
+
+.fade-in{
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

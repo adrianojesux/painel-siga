@@ -1,0 +1,49 @@
+<article class="bloco">
+  <div class="container">
+    <div class="row">
+      <div class="col left-content">
+        <br>
+        <br>
+        <br>
+        <img src="assets/imgs/logo-continuumweb.png" alt="" width="100">
+        <br><br>
+        <p class="detail-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatem tempora officiis recusandae obcaecati
+          unde earum. Labore ipsa voluptates, aperiam corrupti iste, aut reiciendis cupiditate eaque nihil consectetur
+          consequatur atque!
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat sit ut officia amet incidunt animi minus
+          similique praesentium ea, ab totam sequi adipisci ex numquam consectetur, accusantium eveniet eius debitis!
+        </p>
+
+      </div>
+      <div class="col right-content">
+        <div class="img">
+          <img src="assets/imgs/lock.svg" width="100" alt="">
+        </div>
+        <form #form="ngForm" (ngSubmit)="doLogin(form)">
+          <div class="row">
+            <div class="form-group col-12">
+              <label for="">Email:</label>
+              <input type="email" name="email" id="email" [(ngModel)]="userCredencial.email"
+                class="form-control input-sm" placeholder="seu-email@exemplo.com">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-12">
+              <label for="">Senha:</label>
+              <input type="password" name="senha" id="senha" [(ngModel)]="userCredencial.password"
+                class="form-control input-sm" placeholder="******">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-button btn-block btn-success">Entrar</button>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</article>
