@@ -1,3 +1,5 @@
+import Credenciais from 'src/app/models/loginmodel';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  userCredencial: Credenciais = new Credenciais();
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+  }
+
+  doLogin(credenciais: Credenciais) {
+    console.log(this.userCredencial);
+    this.authService.authLogin(this.userCredencial)
+    .subscribe((user) => {
+      console.log('USUÁRIO LOGADO');
+    });
   }
 
 }

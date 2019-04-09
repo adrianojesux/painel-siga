@@ -8,12 +8,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import ConstantsUrl from './utils/contantsUrls';
 import { HttpClientModule } from '@angular/common/http';
+import { MasterPageComponent } from './pages/master-page/master-page.component';
+import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    MasterPageComponent,
+    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
