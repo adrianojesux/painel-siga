@@ -10,6 +10,14 @@ import ConstantsUrl from './utils/contantsUrls';
 import { HttpClientModule } from '@angular/common/http';
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProjetosComponent } from './pages/projetos/projetos.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { AtividadesComponent } from './pages/atividades/atividades.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { CardHomeComponent } from './components/card-home/card-home.component';
+import { CardListaHomeComponent } from './components/card-lista-home/card-lista-home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +25,15 @@ import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.com
     LoginComponent,
     FormLoginComponent,
     MasterPageComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    HomeComponent,
+    ProjetosComponent,
+    ClientesComponent,
+    AtividadesComponent,
+    UsuariosComponent,
+    PerfilComponent,
+    CardHomeComponent,
+    CardListaHomeComponent
   ],
   imports: [
     BrowserModule,

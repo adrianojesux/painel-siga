@@ -31,6 +31,13 @@ body{
     align-items: center;
 }
 
+h1.title-item-card{
+    font-family: 'Titillium Web', sans-serif !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    font-size: 122px !important;
+    border-left: solid 5px orangered;
+}
 
 h2.title-page{
     font-family: 'Varela Round', sans-serif !important;
@@ -45,6 +52,7 @@ h2.title-item{
     color: #666 !important;
     font-weight: bold !important;
     font-size: 18px !important;
+    margin-bottom: 0 !important;
 }
 
 p.detail-sm{

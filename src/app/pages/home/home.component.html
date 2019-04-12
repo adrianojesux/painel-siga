@@ -1,0 +1,31 @@
+<div class="container-fluid aling-center">
+    <div class="row">
+        <app-card-home></app-card-home>
+        <app-card-home></app-card-home>
+        <app-card-home></app-card-home>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <div class="lista">
+                <h2 class="title-page">Melhores Avaliados</h2>
+                <app-card-lista-home></app-card-lista-home>
+                <app-card-lista-home></app-card-lista-home>
+                <app-card-lista-home></app-card-lista-home>
+                <app-card-lista-home></app-card-lista-home>
+            </div>
+        </div>
+        <div class="col">
+            <div class="lista">
+                <h2 class="title-page">Mais Recentes</h2>
+                <app-card-lista-home [isNew]="true"></app-card-lista-home>
+                <app-card-lista-home [isNew]="true"></app-card-lista-home>
+                <app-card-lista-home [isNew]="true"></app-card-lista-home>
+            </div>
+        </div>
+    </div>
+
+
+</div>
