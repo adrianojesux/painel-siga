@@ -17,7 +17,10 @@ import { AtividadesComponent } from './pages/atividades/atividades.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { CardHomeComponent } from './components/card-home/card-home.component';
-import { CardListaHomeComponent } from './components/card-lista-home/card-lista-home.component';
+import { ClientsDetailsComponent } from './pages/clients-details/clients-details.component';
+import { CardClientListComponent } from './components/card-client-list/card-client-list.component';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { CardProjecListComponent } from './components/card-projec-list/card-projec-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { CardListaHomeComponent } from './components/card-lista-home/card-lista-
     UsuariosComponent,
     PerfilComponent,
     CardHomeComponent,
-    CardListaHomeComponent
+    ClientsDetailsComponent,
+    CardClientListComponent,
+    ProjectDetailsComponent,
+    CardProjecListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import Credenciais from 'src/app/models/loginmodel';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,10 +13,12 @@ export class LoginComponent implements OnInit {
   userCredencial: Credenciais = new Credenciais();
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(
+  ) {
   }
 
   doLogin(credenciais: Credenciais) {
@@ -23,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.authService.authLogin(this.userCredencial)
     .subscribe((user) => {
       console.log('USUÁRIO LOGADO');
+      // this.router.navigate(['/']);
     });
   }
 

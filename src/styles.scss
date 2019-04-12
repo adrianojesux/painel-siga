@@ -59,6 +59,7 @@ p.detail-sm{
     font-family: 'Varela Round', sans-serif !important;
     color: #666 !important;
     font-size: 14px !important;
+    margin-bottom: 0;
 }
 
 label{
@@ -75,12 +76,17 @@ label{
     background-color: transparent;
     border-bottom: solid 2px #ccc;
     font-family: 'Varela Round', sans-serif !important;
+    font-size: 16px;
+    transition: border .5s;
+    transition-timing-function: ease-in-out;
 }
 
 .form-control:focus{
     border: 0;
-    border-bottom: solid 2px #26d144;
+    border-bottom: solid 2px orange;
     box-shadow: none;
+    background-color: transparent;
+    
 }
 
 input[type=number]::-webkit-inner-spin-button { 

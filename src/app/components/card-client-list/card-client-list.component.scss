@@ -1,0 +1,47 @@
+button.card-lista{
+    min-height: 70px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: .5em;
+    margin: 1em 0;
+    display: flex;
+    transition: .5s;
+    transition-timing-function: ease-in-out;  
+    text-align: left;
+    text-decoration: none;
+    
+    &:hover{
+        border-left: solid 5px orange;
+        box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+        text-decoration: none;
+    }
+
+    .avatar-item{
+        width: 50px;
+        height: 50px;
+        margin-right: 1em;
+
+        &.avatar{
+            border-radius: 10px;
+            background-color: aquamarine;
+        }
+    }
+
+    .detail{
+        padding: .5em;
+        width: 90%
+    }
+
+    .action {
+        // position: absolute;
+        // right: 20px;
+        margin-top: .4em;
+
+        button.btn-link{
+            font-family: 'Varela Round', sans-serif !important;
+            color: #666 !important;
+            font-size: 16px !important;
+        }
+    }
+}

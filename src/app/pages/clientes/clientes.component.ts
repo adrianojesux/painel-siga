@@ -1,4 +1,6 @@
+import { ClientsService } from './../../services/clients.service';
 import { Component, OnInit } from '@angular/core';
+import Cliente from 'src/app/models/clients';
 
 @Component({
   selector: 'app-clientes',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  listaClientes: Cliente[] = [];
+
+  constructor(
+    private clientService: ClientsService
+  ) { }
 
   ngOnInit() {
+    this.getList();
   }
+
+  submitSearch(form) {
+    console.log(form);
+  }
+
+  getList() {
+    this.clientService.getAll()
+      .subscribe((lista: Cliente[]) => {
+        this.listaClientes = lista;
+      });
+  }
+
+
 
 }

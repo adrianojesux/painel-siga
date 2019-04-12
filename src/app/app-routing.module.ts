@@ -1,3 +1,5 @@
+import { AuthGuardService } from './services/auth-guard.service';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { AtividadesComponent } from './pages/atividades/atividades.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -7,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProjetosComponent } from './pages/projetos/projetos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { ClientsDetailsComponent } from './pages/clients-details/clients-details.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,7 @@ const routes: Routes = [
   {
     path: '',
     component: MasterPageComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: '',
@@ -28,11 +32,29 @@ const routes: Routes = [
       },
       {
         path: 'projects',
-        component: ProjetosComponent
+        children: [
+          {
+            path: '',
+            component: ProjetosComponent
+          },
+          {
+            path: 'details',
+            component: ProjectDetailsComponent
+          }
+        ]
       },
       {
         path: 'clients',
-        component: ClientesComponent
+        children: [
+          {
+            path: '',
+            component: ClientesComponent
+          },
+          {
+            path: 'details',
+            component: ClientsDetailsComponent
+          }
+        ]
       },
       {
         path: 'tasks',

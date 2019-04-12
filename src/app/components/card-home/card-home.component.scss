@@ -1,7 +1,7 @@
 .card-content{
     &{
-        height: 200px;
-        width: 350px;
+        min-height: 200px;
+        max-width: 350px;
         background-color: #fff;
         border-radius: 10px;
         padding: 1em;
