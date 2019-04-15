@@ -6,7 +6,7 @@ export default class ConstantsUrl {
 
     readonly API_PROD: string = 'https://api.continuumweb.com.br/v1';
 
-    readonly API_BASE: string = this.API_PROD;
+    readonly API_BASE: string = this.API_DES;
 
     readonly AUTH_LOGIN_USER: string = `${this.API_BASE}/auth/login`;
 

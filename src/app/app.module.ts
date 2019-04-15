@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import ConstantsUrl from './utils/contantsUrls';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,6 +21,7 @@ import { ClientsDetailsComponent } from './pages/clients-details/clients-details
 import { CardClientListComponent } from './components/card-client-list/card-client-list.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { CardProjecListComponent } from './components/card-projec-list/card-projec-list.component';
+import { AddHeaderInterceptorService } from './services/add-header-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,10 @@ import { CardProjecListComponent } from './components/card-projec-list/card-proj
     HttpClientModule
   ],
   providers: [
-    ConstantsUrl
-    
+    ConstantsUrl,
+    { provide: HTTP_INTERCEPTORS,
+      useClass: AddHeaderInterceptorService,
+      multi: true }
   ],
   bootstrap: [AppComponent]
 })

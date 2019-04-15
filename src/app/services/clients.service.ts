@@ -21,7 +21,10 @@ export class ClientsService {
   ) { }
 
   getAll(): Observable<any> {
-    return this.http.get<Cliente[]>(this.constantsUrl.CLIENTE_LIST_ALL, this.getHeaders())
+    // const headers = new HttpHeaders();
+    // this.preapreHeader(headers);
+    // console.log("HEADERS ====> ", headers);
+    return this.http.get<Cliente[]>(this.constantsUrl.CLIENTE_LIST_ALL)
       .pipe(
         catchError(this.handleError('Error ao listar Clientes')),
         map((listClientes) => {
@@ -41,14 +44,15 @@ export class ClientsService {
     if (error) console.error('DiplomaProvider: ' + msg);
     else console.log('DiplomaProvider: ' + msg);
   }
-  getHeaders(): Object {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.authService.getToken()}`
-      
-    });
-    console.log(headers);
-    return { headers };
-  }
+
+  // preapreHeader() {
+  //   // headers.append('Authorization', `Bearer ${'\\'}`);
+  //   // headers.append('Content-Type', 'application/json');
+  //   { headers : [
+  //     'Authorization' : `Bearer ${'\\'}`)
+  //   ]}
+
+
+  // }
 
 }
