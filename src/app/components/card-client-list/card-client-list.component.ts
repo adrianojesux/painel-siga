@@ -1,3 +1,4 @@
+import Cliente from 'src/app/models/clients';
 import { Router, NavigationExtras } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,6 +11,8 @@ export class CardClientListComponent implements OnInit {
 
   @Input() isNew: boolean = false;
 
+  @Input() cliente: Cliente = new Cliente();
+
   constructor(
     private router: Router
   ) { }
@@ -17,11 +20,11 @@ export class CardClientListComponent implements OnInit {
   ngOnInit() {
   }
 
-  doAction() {
+  doGoClientDetails(cliente: Cliente) {
     // tslint:disable-next-line:no-unused-expression
     console.log('doAction called');
     const extras: NavigationExtras = {
-      queryParams: {_id: 'asdasd'}
+      queryParams: { _id: cliente._id }
     };
     this.router.navigate(['/clients/details'], extras);
 

@@ -1,4 +1,4 @@
-<button class="btn btn-link card-lista" (click)="doAction($event)">
+<button class="btn btn-link card-lista" (click)="doGoClientDetails(cliente)">
   <div *ngIf="!isNew" class="avatar-item avatar">
 
   </div>
@@ -7,14 +7,14 @@
   </div>
   <div class="detail">
     <h2 class="title-item">
-      Nome do Cliente
+      {{ cliente.name }}
     </h2>
     <p class="detail-sm">
-      Email: contato@empresa.com
+      Email: {{ cliente.email }} - Phone: {{ cliente.phone }}
     </p>
   </div>
   <div class="action">
-    <button class="btn btn-link" (click)="doAction($event)">
+    <button class="btn btn-link" (click)="doGoClientDetails(cliente)">
       <img src="assets/imgs/eye.svg" width="30" alt="">
     </button>
   </div>
