@@ -20,6 +20,12 @@ export default class ConstantsUrl {
 
     readonly AUTH_LIST_USERS: string = `${this.API_BASE}/auth/userlist`;
 
+    // CLIENTES
+
     readonly CLIENTE_LIST_ALL: string = `${this.API_BASE}/cliente/list`;
+
+    // PROJETOS
+
+    readonly PROJETOS_LIST_ALL: string = `${this.API_BASE}/projetos/list`;
 
 }
