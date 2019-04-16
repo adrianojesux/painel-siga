@@ -1,8 +1,8 @@
 const proxy = [
     {
-        context: '/',
-        target: 'http://localhost:3000',
-        pathRewrite: { '^/api': '/v1' }
+        context: '/api',
+        target: 'http://localhost:3000/v1',
+        pathRewrite: { '^/api': '/' }
     }
 ];
 module.exports = proxy;
