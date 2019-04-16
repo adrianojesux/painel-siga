@@ -2,11 +2,13 @@ import { environment } from './../../environments/environment';
 
 export default class ConstantsUrl {
 
-    readonly API_DES: string = 'http://localhost:3000/v1';
+    readonly API_DES: string = 'http://localhost:3000/v1/';
+
+    readonly API_LOCAL_PROXY = 'http://localhost:4200/api';
 
     readonly API_PROD: string = 'https://api.continuumweb.com.br/v1';
 
-    readonly API_BASE: string = this.API_DES;
+    readonly API_BASE: string = this.API_LOCAL_PROXY;
 
     readonly AUTH_LOGIN_USER: string = `${this.API_BASE}/auth/login`;
 

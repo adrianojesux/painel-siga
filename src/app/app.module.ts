@@ -49,10 +49,10 @@ import { AddHeaderInterceptorService } from './services/add-header-interceptor.s
     HttpClientModule
   ],
   providers: [
-    ConstantsUrl,
-    { provide: HTTP_INTERCEPTORS,
-      useClass: AddHeaderInterceptorService,
-      multi: true }
+    ConstantsUrl
+    // { provide: HTTP_INTERCEPTORS,
+    //   useClass: AddHeaderInterceptorService,
+    //   multi: true }
   ],
   bootstrap: [AppComponent]
 })
