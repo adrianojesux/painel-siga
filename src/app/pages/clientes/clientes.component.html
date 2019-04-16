@@ -20,10 +20,11 @@
         </button>
       </div>
     </div>
-    <!-- <div >
+    <div *ngFor="let client of listaClientes">
+      <app-card-client-list [cliente]="client"></app-card-client-list>
+    </div>
+    <!-- <app-card-client-list></app-card-client-list> -->
 
-    </div> -->
-    <app-card-client-list *ngFor="let cliente of listaClientes"></app-card-client-list>
     <!-- <app-card-client-list></app-card-client-list>
     <app-card-client-list></app-card-client-list>
     <app-card-client-list></app-card-client-list> -->
