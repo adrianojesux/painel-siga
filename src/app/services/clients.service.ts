@@ -24,11 +24,13 @@ export class ClientsService {
     // const headers = new HttpHeaders();
     // this.preapreHeader(headers);
     // console.log("HEADERS ====> ", headers);
-    return this.http.get<Cliente[]>(this.constantsUrl.CLIENTE_LIST_ALL)
+    console.log("HEADER --> ", this.getHeader().get('Authorization'));
+    return this.http.get<any[]>(this.constantsUrl.CLIENTE_LIST_ALL, { headers: this.getHeader() })
       .pipe(
         catchError(this.handleError('Error ao listar Clientes')),
         map((listClientes) => {
           console.log(listClientes);
+          return listClientes;
         })
       )
   }
@@ -43,6 +45,14 @@ export class ClientsService {
   private log(msg: string, error: boolean): void {
     if (error) console.error('DiplomaProvider: ' + msg);
     else console.log('DiplomaProvider: ' + msg);
+  }
+
+  getHeader(): HttpHeaders {
+    return new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': `Bearer ${localStorage.getItem('TOKEN')}`,
+      'Content-Type': 'application/json'
+    });
   }
 
   // preapreHeader() {
