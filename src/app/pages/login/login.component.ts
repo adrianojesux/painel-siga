@@ -1,7 +1,8 @@
+import { FormLoginComponent } from './../../components/form-login/form-login.component';
 import { Router } from '@angular/router';
 import Credenciais from 'src/app/models/loginmodel';
 import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild('formLogin') formLogin: FormLoginComponent;
 
   userCredencial: Credenciais = new Credenciais();
 
@@ -22,12 +25,28 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(credenciais: Credenciais) {
-    console.log(this.userCredencial);
-    this.authService.authLogin(this.userCredencial)
+    this.formLogin.error = null;
+  
+    if(!this.validateData(credenciais)) return;
+
+    this.authService.authLogin(credenciais)
     .subscribe((user) => {
       console.log('USUÁRIO LOGADO');
-      // this.router.navigate(['/']);
+    }, (e) => {
+      console.log(e)
+      this.formLogin.error = e.error.error;
     });
+  }
+
+  validateData(credenciais: Credenciais) {
+    if(!credenciais.email || !credenciais.password){
+      this.formLogin.error = "Email e senha são obrigatórios.";
+      return
+    }else if( credenciais.email.indexOf('@') === -1 || credenciais.email.split('@')[1].indexOf('.') === -1 ){
+      this.formLogin.error = "Email informado inválido.";
+      return
+    }
+    return true;
   }
 
 }

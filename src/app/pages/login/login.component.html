@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="content">
-        <app-form-login [userCredencial]="userCredencial" (loginFunction)="doLogin($event)"></app-form-login>
+        <app-form-login #formLogin (loginFunction)="doLogin($event)"></app-form-login>
       </div>
     </div>
   </div>

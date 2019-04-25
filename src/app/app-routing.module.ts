@@ -1,3 +1,4 @@
+import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-cadastro.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { AtividadesComponent } from './pages/atividades/atividades.component';
@@ -53,6 +54,10 @@ const routes: Routes = [
           {
             path: 'details',
             component: ClientsDetailsComponent
+          },
+          {
+            path: 'cadastro',
+            component: ClientesCadastroComponent
           }
         ]
       },

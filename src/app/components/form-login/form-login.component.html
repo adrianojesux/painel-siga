@@ -20,6 +20,12 @@
         <div class="img">
           <img src="assets/imgs/lock.svg" width="100" alt="">
         </div>
+        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Ops!</strong> {{error}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         <form #form="ngForm" (ngSubmit)="doLogin(form)">
           <div class="row">
             <div class="form-group col-12">

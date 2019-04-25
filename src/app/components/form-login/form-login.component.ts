@@ -10,8 +10,8 @@ import UserAuth from 'src/app/models/userAuth';
 })
 export class FormLoginComponent implements OnInit {
 
-  // userCredencial: Credenciais = new Credenciais();
-  @Input() userCredencial: any;
+  userCredencial: Credenciais = new Credenciais();
+  @Input() error: string = null;
   @Output() loginFunction = new EventEmitter();
 
   constructor(
@@ -22,10 +22,8 @@ export class FormLoginComponent implements OnInit {
   }
 
   doLogin(form) {
-    const user: Credenciais = new Credenciais();
-    user.email = form.value.email;
-    user.password = form.value.password;
-    this.loginFunction.emit(user);
+    console.log(form.value);
+    this.loginFunction.emit(this.userCredencial);
   }
 
 }

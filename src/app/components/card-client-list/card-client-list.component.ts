@@ -29,4 +29,15 @@ export class CardClientListComponent implements OnInit {
     this.router.navigate(['/clients/details'], extras);
 
   }
+
+  getSigla(){
+    const nome = this.cliente.name;
+    if(nome.split(' ').length > 1){
+      const firstName = nome.split(' ')[0];
+      const lastName = nome.split(' ')[nome.split(' ').length - 1];
+      return `${firstName.split('')[0]}${lastName.split('')[1]}`;
+    }else{
+      return `${nome.split('')[0]}${nome.split('')[1]}`;
+    }
+  }
 }

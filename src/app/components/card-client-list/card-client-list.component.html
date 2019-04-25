@@ -1,6 +1,6 @@
 <button class="btn btn-link card-lista" (click)="doGoClientDetails(cliente)">
   <div *ngIf="!isNew" class="avatar-item avatar">
-
+    <h2 class="sigla-item">{{ getSigla() }}</h2>
   </div>
   <div class="avatar-item" *ngIf="isNew">
     <img src="assets/imgs/new.svg" width="50" alt="">

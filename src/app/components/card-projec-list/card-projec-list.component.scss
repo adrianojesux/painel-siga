@@ -20,11 +20,14 @@ button.card-lista{
     .avatar-item{
         width: 50px;
         height: 50px;
-        margin-right: 1em;
+        padding-right: 2em;
 
         &.avatar{
-            border-radius: 10px;
-            background-color: aquamarine;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            background-color: darkorange;
+            padding: 8px;
         }
     }
 

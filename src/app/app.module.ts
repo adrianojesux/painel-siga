@@ -22,6 +22,7 @@ import { CardClientListComponent } from './components/card-client-list/card-clie
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { CardProjecListComponent } from './components/card-projec-list/card-projec-list.component';
 import { AddHeaderInterceptorService } from './services/add-header-interceptor.service';
+import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AddHeaderInterceptorService } from './services/add-header-interceptor.s
     ClientsDetailsComponent,
     CardClientListComponent,
     ProjectDetailsComponent,
-    CardProjecListComponent
+    CardProjecListComponent,
+    ClientesCadastroComponent
   ],
   imports: [
     BrowserModule,

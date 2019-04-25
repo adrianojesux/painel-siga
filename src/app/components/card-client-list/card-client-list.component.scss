@@ -23,9 +23,12 @@ button.card-lista{
         margin-right: 1em;
 
         &.avatar{
-            border-radius: 10px;
+            border-radius: 50%;
             background-color: aquamarine;
+            padding: 8px;
         }
+
+        
     }
 
     .detail{

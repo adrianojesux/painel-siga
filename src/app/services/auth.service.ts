@@ -57,7 +57,7 @@ export class AuthService {
         }
         console.log(user);
         return user;
-      }));
+      }), catchError(this.handleError('Falha ao tentar realizar login.')) );
   }
 
   logout() {
@@ -74,5 +74,17 @@ export class AuthService {
       'Content-Type': 'application/json'
     });
     return { headers };
+  }
+
+  private handleError<T>(op = 'op', res?: T) {
+    return (err: any): Observable<T> => {
+      this.log(`${op} failed: ${err.message}`, true);
+      throw err;
+    }
+  }
+
+  private log(msg: string, error: boolean): void {
+    if (error) console.error('DiplomaProvider: ' + msg);
+    else console.log('DiplomaProvider: ' + msg);
   }
 }
