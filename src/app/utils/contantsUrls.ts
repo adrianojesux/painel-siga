@@ -24,6 +24,14 @@ export default class ConstantsUrl {
 
     readonly CLIENTE_LIST_ALL: string = `${this.API_BASE}/cliente/list`;
 
+    readonly CLIENTE_CREATE: string = `${this.API_BASE}/cliente/create`;
+
+    readonly CLIENTE_UPDATE: string = `${this.API_BASE}/cliente/`;
+
+    readonly CLIENTE_GET_ONE: string = `${this.API_BASE}/cliente/buscar/`;
+    
+    readonly CLIENTE_DELETE: string = `${this.API_BASE}/cliente/remove/`
+
     // PROJETOS
 
     readonly PROJETOS_LIST_ALL: string = `${this.API_BASE}/projetos/list`;
