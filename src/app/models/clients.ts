@@ -7,4 +7,5 @@ export default class Cliente {
     complementAdress: string;
     phone: string;
     createdAt: Date;
+    password?: string;
 }
