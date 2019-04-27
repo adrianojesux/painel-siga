@@ -1,12 +1,9 @@
-import { AuthService } from './auth.service';
-
-// tslint:disable
-
+import { ApiRequestService } from './api-request.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Cliente from '../models/clients';
 import ConstantsUrl from '../utils/contantsUrls';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,54 +12,28 @@ import { Observable } from 'rxjs';
 export class ClientsService {
 
   constructor(
-    private http: HttpClient,
     private constantsUrl: ConstantsUrl,
-    private authService: AuthService
+    private apiRequest: ApiRequestService
   ) { }
 
-  getAll(): Observable<any> {
-    // const headers = new HttpHeaders();
-    // this.preapreHeader(headers);
-    // console.log("HEADERS ====> ", headers);
-    console.log("HEADER --> ", this.getHeader().get('Authorization'));
-    return this.http.get<any[]>(this.constantsUrl.CLIENTE_LIST_ALL, { headers: this.getHeader() })
-      .pipe(
-        catchError(this.handleError('Error ao listar Clientes')),
-        map((listClientes) => {
-          console.log(listClientes);
-          return listClientes;
-        })
-      )
+  getAll(): Observable<Cliente[]> {
+    return this.apiRequest.get<Cliente[]>(this.constantsUrl.CLIENTE_LIST_ALL);
   }
 
-  private handleError<T>(op = 'op', res?: T) {
-    return (err: any): Observable<T> => {
-      this.log(`${op} failed: ${err.message}`, true);
-      throw err;
-    }
+  createOne(cliente: Cliente): Observable<Cliente> {
+    return this.apiRequest.post<Cliente>(this.constantsUrl.CLIENTE_CREATE, cliente);
   }
 
-  private log(msg: string, error: boolean): void {
-    if (error) console.error('DiplomaProvider: ' + msg);
-    else console.log('DiplomaProvider: ' + msg);
+  getOne(id: string): Observable<Cliente> {
+    return this.apiRequest.get<Cliente>(`${this.constantsUrl.CLIENTE_GET_ONE}${id}`);
   }
 
-  getHeader(): HttpHeaders {
-    return new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': `Bearer ${localStorage.getItem('TOKEN')}`,
-      'Content-Type': 'application/json'
-    });
+  putOne(cliente: Cliente): Observable<Cliente> {
+    return this.apiRequest.put<Cliente>(`${this.constantsUrl.CLIENTE_UPDATE}${cliente._id}`, cliente);
   }
 
-  // preapreHeader() {
-  //   // headers.append('Authorization', `Bearer ${'\\'}`);
-  //   // headers.append('Content-Type', 'application/json');
-  //   { headers : [
-  //     'Authorization' : `Bearer ${'\\'}`)
-  //   ]}
-
-
-  // }
+  deleteOnde(id: string): Observable<any> {
+    return this.apiRequest.delete(`${this.constantsUrl.CLIENTE_DELETE}${id}`);
+  }
 
 }
