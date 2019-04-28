@@ -13,5 +13,31 @@
         margin: 10px;
         background-color: #fff;
         border-radius: 10px;
+        margin-top: 32px;
+        transition: .5s;
+        transition-timing-function: ease-in-out;
+    }
+
+    &.active{
+        border-left: solid 5px orange;
+        box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+        text-decoration: none;
+    }
+
+    .contente-title {
+        height: 50px;
+        width: 80%;
+        background-color: darkorange;
+        margin: auto;
+        border-radius: 10px;
+        padding: 16px;
+        left: 50%;
+        top: -10px;
+        transform: translateY(-70%);
+        text-align: center;
+
+        .title-item{
+            color: #fff !important;
+        }
     }
 }
