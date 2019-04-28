@@ -23,6 +23,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { CardProjecListComponent } from './components/card-projec-list/card-projec-list.component';
 import { AddHeaderInterceptorService } from './services/add-header-interceptor.service';
 import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-cadastro.component';
+import { MaskDirective } from './directives/mask.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-ca
     CardClientListComponent,
     ProjectDetailsComponent,
     CardProjecListComponent,
-    ClientesCadastroComponent
+    ClientesCadastroComponent,
+    MaskDirective
   ],
   imports: [
     BrowserModule,
