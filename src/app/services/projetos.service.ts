@@ -1,3 +1,4 @@
+import { ApiRequestService } from './api-request.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import ConstantsUrl from '../utils/contantsUrls';
@@ -11,33 +12,14 @@ import Projeto from '../models/projeto';
 export class ProjetosService {
 
   constructor(
-    private httpClient: HttpClient,
+    private apiRequest: ApiRequestService,
     private constantsUrl: ConstantsUrl
   ) { }
 
-  getAll(): Observable<any>{
-    return this.httpClient.get<Projeto[]>(this.constantsUrl.PROJETOS_LIST_ALL, { headers : this.getHeader() })
-    .pipe( catchError(this.handleError()));
+  getAll(): Observable<Projeto[]>{
+    return this.apiRequest.get<Projeto[]>(this.constantsUrl.PROJETOS_LIST_ALL);
   }
 
-  private handleError<T>(op = 'op', res?: T) {
-    return (err: any): Observable<T> => {
-      this.log(`${op} failed: ${err.message}`, true);
-      throw err;
-    }
-  }
-
-  private log(msg: string, error: boolean): void {
-    if (error) console.error('DiplomaProvider: ' + msg);
-    else console.log('DiplomaProvider: ' + msg);
-  }
-
-  getHeader(): HttpHeaders {
-    return new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': `Bearer ${localStorage.getItem('TOKEN')}`,
-      'Content-Type': 'application/json'
-    });
-  }
+  
 
 }
