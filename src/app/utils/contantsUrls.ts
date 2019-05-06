@@ -10,6 +10,8 @@ export default class ConstantsUrl {
 
     readonly API_BASE: string = this.API_LOCAL_PROXY;
 
+    readonly API_BUSCA_CEP: string = `${this.API_BASE}/utils/buscaCep/`
+
     readonly AUTH_LOGIN_USER: string = `${this.API_BASE}/auth/login`;
 
     readonly AUTH_RESET_PASSWORD: string = `${this.API_BASE}/auth/reset_password`;

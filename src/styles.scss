@@ -14,6 +14,17 @@ body{
     height: 100vh;
 }
 
+// Variáveis
+:root{
+    --gradiente: linear-gradient(to right, #296ff9, #5a20ca 25%, #296ff9);
+    --gradiente-green: linear-gradient(to right, #00ace6, #4dd2ff);
+    --bg-yellow: #E79926;
+    --bg-green: #0a6066;
+    --bg-green-light: #0c767d;
+
+}
+
+
 .grid-6{
     flex: 1;
     max-width: 50%;
@@ -39,7 +50,14 @@ h1.title-item-card{
     border-left: solid 5px orangered;
 }
 
-h2.title-page{
+h1.title-page{
+    font-family: 'Varela Round', sans-serif !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    font-size: 36px !important;
+}
+
+h2.title-session{
     font-family: 'Varela Round', sans-serif !important;
     color: #666 !important;
     font-weight: bold !important;

@@ -12,7 +12,7 @@ button.card-lista{
     text-decoration: none;
     
     &:hover{
-        border-left: solid 5px orange;
+        border-left: solid 5px var(--bg-yellow);
         box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
         text-decoration: none;
     }
@@ -24,7 +24,7 @@ button.card-lista{
 
         &.avatar{
             border-radius: 50%;
-            background-color: aquamarine;
+            background-color: var(--bg-yellow);
             padding: 8px;
         }
 

@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="content-top">
-      <form id=formId (ngSubmit)="submitSearch(refForm)" #refForm="ngForm">
+      <!-- <form id=formId (ngSubmit)="submitSearch(refForm)" #refForm="ngForm"> -->
         <div class="form-group">
-          <input type="text" class="form-control input-sm" placeholder="Buscar Cliente">
+          <input type="text" id="search" name="search" [(ngModel)]="termSearch" (ngModelChange)="submitSearch($event)" class="form-control input-sm" placeholder="Buscar Cliente">
           <button class="btn btn-link">
             <img src="assets/imgs/search.svg" width="20" alt="">
           </button>
         </div>
-      </form>
+      <!-- </form> -->
     </div>
   </div>
   <hr>
@@ -16,18 +16,11 @@
     <div class="container">
       <div class="row">
         <button (click)="onAddNew()" class="btn btn-link">
-          <img src="assets/imgs/add-button.svg" width="50" alt=""> PROJETO
+          <img src="assets/imgs/add-button.svg" width="50" alt=""> CLIENTE
         </button>
       </div>
     </div>
     <div *ngFor="let client of listaClientes">
       <app-card-client-list [cliente]="client"></app-card-client-list>
-    </div>
-    <!-- <app-card-client-list></app-card-client-list> -->
-
-    <!-- <app-card-client-list></app-card-client-list>
-    <app-card-client-list></app-card-client-list>
-    <app-card-client-list></app-card-client-list> -->
-
   </div>
 </div>

@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="content-top">
-      <h2 class="title-page">
+      <h1 class="title-page">
         Cadastrar Cliente
-      </h2>
+      </h1>
     </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Ops!</strong> <span [innerHTML]="error"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="row">
     <div class="col">
@@ -41,8 +47,28 @@
           </div>
           <div class="form-group">
             <label for="cep">CEP: </label>
-            <input type="tel" id="cep" name="cep" mask="99999-999" (focus)="activateBlock(2)" [(ngModel)]="cliente.cepAdress" class="form-control input-sm"
+            <input type="tel" id="cep" name="cep" mask="99999-999" (blur)="buscaEndereco($event)" (focus)="activateBlock(2)" [(ngModel)]="cliente.cepAdress" class="form-control input-sm"
               placeholder="00000-000">
+          </div>
+          <div class="row">
+            <div class="form-group col-6">
+              <label for="street">Rua:</label>
+              <input type="text" id="street" name="street" [(ngModel)]="cliente.street" class="form-control input-sm" disabled="true" placeholder="Nome da Rua" >
+            </div>
+            <div class="form-group col-6">
+              <label for="neighborhood">Bairo:</label>
+              <input type="text" id="neighborhood" name="neighborhood" [(ngModel)]="cliente.neighborhood" class="form-control input-sm" disabled="true" placeholder="Nome da Rua" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-9">
+                <label for="city">Cidade:</label>
+                <input type="text" id="city" name="city" [(ngModel)]="cliente.city" class="form-control input-sm" disabled="true" placeholder="Cidade">
+            </div>
+            <div class="form-group col-3">
+                <label for="state">Estado:</label>
+                <input type="text" id="state" name="state" [(ngModel)]="cliente.state" class="form-control input-sm" disabled="true" placeholder="Estado">
+            </div>
           </div>
           <div class="form-group">
             <label for="complementAdress">Complemento: </label>
@@ -68,13 +94,13 @@
           </div>
           <div class="form-group">
             <label for="confirm-password">Confirmar Senha: </label>
-            <input type="password" id="confirm-password" name="confirm-password" (focus)="activateBlock(3)" class="form-control input-sm"
+            <input type="password" id="confirm-password" name="confirm-password" [(ngModel)]="cliente.confirmPassword" (focus)="activateBlock(3)" class="form-control input-sm"
               placeholder="********">
           </div>
         </div>
 
         <div class="form-group">
-          <button class="btn btn-success" type="submit">
+          <button type="submit" class="btn btn-success" type="submit">
             Pronto!
           </button>
         </div>

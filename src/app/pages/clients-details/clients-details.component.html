@@ -1,3 +1,38 @@
-<p>
-  {{id}}
-</p>
+<div class="container">
+  <div class="content-top">
+    <div class="row">
+      <div class="col-2">
+        <div *ngIf="cliente" class="avatar-item avatar">
+          <h2 class="sigla-item">{{ getSigla() }}</h2>
+        </div>
+      </div>
+      <div class="col-10 line-name">
+        <h1 class="title-page">{{ cliente.name }}</h1>
+        <h2 class="title-session">Telefone: {{ cliente.phone }}</h2>
+        <h2 class="title-session">Email: {{ cliente.email }}</h2>
+        <h2 class="title-session">Cliente desde: {{ getCreatedAtToDate() }}</h2>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <h2 class="title-session">+ Infográfico</h2>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6" [hidden]="!chart1">
+      <canvas id="canvas">{{ chart1 }}</canvas>
+    </div>
+    <div class="col-md-3" [hidden]="!chart2">
+      <canvas id="doughnut" height="500" width="500">{{ chart2 }}</canvas>
+    </div>
+    <div class="col-md-3" [hidden]="!chart3">
+      <canvas id="pie" height="500" width="500">{{ chart3 }}</canvas>
+    </div>
+  </div>
+
+  <hr>
+
+
+</div>

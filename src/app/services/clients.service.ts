@@ -36,4 +36,8 @@ export class ClientsService {
     return this.apiRequest.delete(`${this.constantsUrl.CLIENTE_DELETE}${id}`);
   }
 
+  buscaCep(cep: string): Observable<any> {
+    return this.apiRequest.get(`${this.constantsUrl.API_BUSCA_CEP}${cep}`);
+  }
+
 }

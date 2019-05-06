@@ -19,7 +19,7 @@
     }
 
     &.active{
-        border-left: solid 5px orange;
+        border-left: solid 5px #004F57;
         box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
         text-decoration: none;
     }
@@ -27,7 +27,7 @@
     .contente-title {
         height: 50px;
         width: 80%;
-        background-color: darkorange;
+        background-color: #004F57;
         margin: auto;
         border-radius: 10px;
         padding: 16px;
