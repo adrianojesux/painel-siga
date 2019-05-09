@@ -11,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjetosComponent } from './pages/projetos/projetos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { ClientsDetailsComponent } from './pages/clients-details/clients-details.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
         component: UsuariosComponent
       }
     ]
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
   }
 ];
 

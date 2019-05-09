@@ -49,6 +49,7 @@ export class AuthService {
   }
 
   authLogin(user: Credenciais): Observable<Object> {
+    user.password = btoa(user.password);
     return this.httpClient.post<UserAuth>(this.constantsUrl.AUTH_LOGIN_USER, user, this.getHeaders())
       .pipe(map((user: UserAuth) => {
         if (user && user.token) {
@@ -66,7 +67,19 @@ export class AuthService {
    */
   forgotPassword(email: string): Observable<any> {
     return this.httpClient.post(this.constantsUrl.AUTH_FORGOT_PASSWORD,
-      { email: email },
+      { email },
+      this.getHeaders()
+    ).pipe(catchError(this.handleError('Falha solicitar forgot password')));
+  }
+
+  resetPassword(password: string, email: string, token: string): Observable<any> {
+    return this.httpClient.put(
+      this.constantsUrl.AUTH_RESET_PASSWORD,
+      {
+        email,
+        password: btoa(password),
+        token
+      },
       this.getHeaders()
     ).pipe(catchError(this.handleError('Falha solicitar forgot password')));
   }

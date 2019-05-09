@@ -24,6 +24,7 @@ import { CardProjecListComponent } from './components/card-projec-list/card-proj
 import { AddHeaderInterceptorService } from './services/add-header-interceptor.service';
 import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-cadastro.component';
 import { MaskDirective } from './directives/mask.directive';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MaskDirective } from './directives/mask.directive';
     ProjectDetailsComponent,
     CardProjecListComponent,
     ClientesCadastroComponent,
-    MaskDirective
+    MaskDirective,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
