@@ -13,6 +13,8 @@ export class FormLoginComponent implements OnInit {
   userCredencial: Credenciais = new Credenciais();
   @Input() error: string = null;
   @Output() loginFunction = new EventEmitter();
+  @Output() forgotPassword = new EventEmitter();
+  @Input() forgotPasswordOk: boolean = false;
 
   constructor(
     private authService: AuthService
@@ -24,6 +26,21 @@ export class FormLoginComponent implements OnInit {
   doLogin(form) {
     console.log(form.value);
     this.loginFunction.emit(this.userCredencial);
+  }
+
+  resetPassword() {
+    const { email } = this.userCredencial;
+    if (!email || email == '') {
+      this.error = "Informe seu email.";
+      return;
+    }
+    console.log('resetPassword() called', email);
+    this.forgotPassword.emit(email);
+  }
+
+  back() {
+    this.forgotPasswordOk = false;
+    this.userCredencial = new Credenciais();
   }
 
 }

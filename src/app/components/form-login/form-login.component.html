@@ -17,38 +17,49 @@
 
       </div>
       <div class="col right-content">
-        <div class="img">
-          <img src="assets/imgs/lock.svg" width="100" alt="">
-        </div>
-        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div *ngIf="!forgotPasswordOk">
+          <div class="img">
+            <img src="assets/imgs/lock.svg" width="100" alt="">
+          </div>
+          <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Ops!</strong> {{error}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-        <form #form="ngForm" (ngSubmit)="doLogin(form)">
+          <form #form="ngForm" (ngSubmit)="doLogin(form)">
+            <div class="row">
+              <div class="form-group col-12">
+                <label for="">Email:</label>
+                <input type="email" name="email" id="email" [(ngModel)]="userCredencial.email"
+                  class="form-control input-sm" placeholder="seu-email@exemplo.com">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-12">
+                <label for="">Senha:</label>
+                <input type="password" name="senha" id="senha" [(ngModel)]="userCredencial.password"
+                  class="form-control input-sm" placeholder="******">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-12">
+                <button type="submit" class="btn btn-button btn-block cw-btn-red">Entrar</button>
+              </div>
+            </div>
+          </form>
+          <button (click)="resetPassword()" class="btn-link btn btn-button">Esqueci minha senha.</button>
+        </div>
+        <div *ngIf="forgotPasswordOk" class="forgot-ok">
+          <h1 class="title-page">Pronto!</h1>
+          <p class="detail-sm">Eviamos um email para <strong>{{userCredencial.email}}</strong> com as instrução para recuperação de
+            senha.</p>
           <div class="row">
             <div class="form-group col-12">
-              <label for="">Email:</label>
-              <input type="email" name="email" id="email" [(ngModel)]="userCredencial.email"
-                class="form-control input-sm" placeholder="seu-email@exemplo.com">
+              <button type="button" (click)="back()" class="btn btn-button btn-block cw-btn-green">< Voltar</button>
             </div>
           </div>
-          <div class="row">
-            <div class="form-group col-12">
-              <label for="">Senha:</label>
-              <input type="password" name="senha" id="senha" [(ngModel)]="userCredencial.password"
-                class="form-control input-sm" placeholder="******">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-12">
-              <button type="submit" class="btn btn-button btn-block cw-btn-red">Entrar</button>
-            </div>
-          </div>
-        </form>
-
-
+        </div>
       </div>
     </div>
   </div>

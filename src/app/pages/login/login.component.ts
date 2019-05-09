@@ -10,10 +10,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  @ViewChild('formLogin') formLogin: FormLoginComponent;
-
+  
   userCredencial: Credenciais = new Credenciais();
+  
+  @ViewChild('formLogin') formLogin: FormLoginComponent;
 
   constructor(
     private authService: AuthService,
@@ -26,27 +26,40 @@ export class LoginComponent implements OnInit {
 
   doLogin(credenciais: Credenciais) {
     this.formLogin.error = null;
-  
-    if(!this.validateData(credenciais)) return;
+
+    if (!this.validateData(credenciais)) return;
 
     this.authService.authLogin(credenciais)
-    .subscribe((user) => {
-      console.log('USUÁRIO LOGADO');
-    }, (e) => {
-      console.log(e)
-      this.formLogin.error = e.error.error;
-    });
+      .subscribe((user) => {
+        console.log('USUÁRIO LOGADO');
+      }, (e) => {
+        console.log(e)
+        this.formLogin.error = e.error.error;
+      });
   }
 
   validateData(credenciais: Credenciais) {
-    if(!credenciais.email || !credenciais.password){
+    if (!credenciais.email || !credenciais.password) {
       this.formLogin.error = "Email e senha são obrigatórios.";
       return
-    }else if( credenciais.email.indexOf('@') === -1 || credenciais.email.split('@')[1].indexOf('.') === -1 ){
+    } else if (credenciais.email.indexOf('@') === -1 || credenciais.email.split('@')[1].indexOf('.') === -1) {
       this.formLogin.error = "Email informado inválido.";
       return
     }
     return true;
+  }
+
+  forgotPassword(email) {
+    console.log('SUCESSO FORGOT_PASSWORD');
+    if (!email || email == "") return;
+    this.authService.forgotPassword(email)
+      .subscribe(() => {
+        this.formLogin.forgotPasswordOk = true;
+      }, (e) => {
+        this.formLogin.error = "Falha ao tentar executar a operação.";
+      });
+
+
   }
 
 }

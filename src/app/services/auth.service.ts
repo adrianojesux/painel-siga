@@ -57,7 +57,18 @@ export class AuthService {
         }
         console.log(user);
         return user;
-      }), catchError(this.handleError('Falha ao tentar realizar login.')) );
+      }), catchError(this.handleError('Falha ao tentar realizar login.')));
+  }
+
+  /**
+   * Método para solicitar reset de senha.
+   * @param email Email do usuário que vai resetar a senha.
+   */
+  forgotPassword(email: string): Observable<any> {
+    return this.httpClient.post(this.constantsUrl.AUTH_FORGOT_PASSWORD,
+      { email: email },
+      this.getHeaders()
+    ).pipe(catchError(this.handleError('Falha solicitar forgot password')));
   }
 
   logout() {
