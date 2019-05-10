@@ -1,3 +1,15 @@
-<p>
-  projetos works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="content-top">
+      <!-- <form id=formId (ngSubmit)="submitSearch(refForm)" #refForm="ngForm"> -->
+        <div class="form-group">
+          <input type="text" id="search" name="search" [(ngModel)]="termSearch" (ngModelChange)="submitSearch($event)" class="form-control input-sm" placeholder="Buscar Cliente">
+          <button class="btn btn-link">
+            <img src="assets/imgs/search.svg" width="20" alt="">
+          </button>
+        </div>
+      <!-- </form> -->
+    </div>
+  </div>
+  <hr>
+</div>

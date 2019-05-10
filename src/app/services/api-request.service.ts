@@ -33,43 +33,43 @@ export class ApiRequestService {
   public get<T>(url: string): Observable<T> {
     return this.request<T>({
       method: 'GET',
-      url: url,
+      url,
       options: {
         headers: this.getHeader()
       }
-    })
+    });
   }
 
   public put<T>(url: string, body: T): Observable<T> {
     return this.request<T>({
       method: 'PUT',
-      url: url,
+      url,
       options: {
         headers: this.getHeader(),
-        body: body
+        body
       }
-    })
+    });
   }
 
   public post<T>(url: string, body: T): Observable<T> {
     return this.request<T>({
       method: 'POST',
-      url: url,
+      url,
       options: {
-        body: body,
+        body,
         headers: this.getHeader()
       }
-    })
+    });
   }
 
   public delete<T>(url: string): Observable<T> {
     return this.request<T>({
       method: 'DELETE',
-      url: url,
+      url,
       options: {
         headers: this.getHeader()
       }
-    })
+    });
   }
 
   private handleError<T>(op = 'op', res?: T) {

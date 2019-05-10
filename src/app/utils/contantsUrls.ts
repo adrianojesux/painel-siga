@@ -31,11 +31,25 @@ export default class ConstantsUrl {
     readonly CLIENTE_UPDATE: string = `${this.API_BASE}/cliente/`;
 
     readonly CLIENTE_GET_ONE: string = `${this.API_BASE}/cliente/buscar/`;
-    
+
     readonly CLIENTE_DELETE: string = `${this.API_BASE}/cliente/remove/`
 
     // PROJETOS
 
     readonly PROJETOS_LIST_ALL: string = `${this.API_BASE}/projetos/list`;
+
+    readonly PROJETOS_GET_ONE: string = `${this.API_BASE}/projetos/buscar/`;
+
+    readonly PROJETOS_LIST_BY_CLIENT: string = `${this.API_BASE}/projetos/listar-por-cliente/`;
+
+    readonly PROJETOS_CREATE: string = `${this.API_BASE}/projetos/create`;
+
+    readonly PROJETOS_EDIT: string = `${this.API_BASE}/projetos/`;
+
+    readonly PROJETOS_ACEPT: string = `$${this.API_BASE}/projetos/acept/`;
+
+    readonly PROJETOS_DECLINE: string = `${this.API_BASE}/projetos/acept/`;
+
+    readonly PROJETOS_DELETE: string = `${this.API_BASE}/projetos/`;
 
 }
