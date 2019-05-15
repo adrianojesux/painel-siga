@@ -1,3 +1,13 @@
-<p>
-  project-details works!
-</p>
+<div class="container" *ngIf="project">
+    <div class="content-top">
+        <div class="row">
+            <div class="col-10 line-name" *ngIf="project">
+                <h1 class="title-page">{{ project.title }}</h1>
+                <h2 class="title-session">Criado dia: {{ getCreatedAtToDate() }}</h2>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <app-task-panel [projectTasks]="project"></app-task-panel>
+
+</div>

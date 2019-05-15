@@ -1,0 +1,30 @@
+.content-top{
+    &{
+        min-height: 100px;
+        padding: 32px;
+        width: 100%;
+    }
+
+    .line-name{
+        border-left: solid 5px var(--bg-yellow);
+    }
+
+    .avatar-item{
+        width: 150px;
+        height: 150px;
+        margin-right: 1em;
+    
+        &.avatar{
+            border-radius: 10%;
+            background: var(--bg-green);
+            padding: 8px;
+            text-align: center;
+        }
+    
+        h2.sigla-item{
+            font-size: 104px;
+            font-family: AmpleSoft-Medium, sans-serif !important;
+            color: #f6f6f6;
+        }
+    }
+}

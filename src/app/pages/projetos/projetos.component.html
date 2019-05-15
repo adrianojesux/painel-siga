@@ -2,14 +2,24 @@
   <div class="row">
     <div class="content-top">
       <!-- <form id=formId (ngSubmit)="submitSearch(refForm)" #refForm="ngForm"> -->
-        <div class="form-group">
-          <input type="text" id="search" name="search" [(ngModel)]="termSearch" (ngModelChange)="submitSearch($event)" class="form-control input-sm" placeholder="Buscar Cliente">
-          <button class="btn btn-link">
-            <img src="assets/imgs/search.svg" width="20" alt="">
-          </button>
-        </div>
+      <div class="form-group">
+        <input type="text" id="search" name="search" [(ngModel)]="termSearch" (ngModelChange)="submitSearch($event)"
+          class="form-control input-sm" placeholder="Buscar Projetos">
+        <button class="btn btn-link">
+          <img src="assets/imgs/search.svg" width="20" alt="">
+        </button>
+      </div>
       <!-- </form> -->
     </div>
   </div>
   <hr>
+  <div class="container">
+    <div class="row">
+      <button (click)="onAddNew()" class="btn btn-link">
+        <img src="assets/imgs/add-button.svg" width="50" alt=""> PROJETO
+      </button>
+    </div>
+  </div>
+  <app-card-projec-list *ngFor="let p of listaProjetos" [projectData]="p"></app-card-projec-list>
+
 </div>

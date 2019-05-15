@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-3 table-left">
+    <div class="task-item" *ngFor="let task of projectTasks.tasks">
+      <h2 class="title-item">{{ task.title }}</h2>
+      <p class="detail-sm">{{ task.completed ? 'Concluido' : 'Em andamento' }}</p>
+    </div>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>

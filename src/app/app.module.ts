@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import ConstantsUrl from './utils/contantsUrls';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,10 +21,12 @@ import { ClientsDetailsComponent } from './pages/clients-details/clients-details
 import { CardClientListComponent } from './components/card-client-list/card-client-list.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { CardProjecListComponent } from './components/card-projec-list/card-projec-list.component';
-import { AddHeaderInterceptorService } from './services/add-header-interceptor.service';
 import { ClientesCadastroComponent } from './pages/clientes-cadastro/clientes-cadastro.component';
 import { MaskDirective } from './directives/mask.directive';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { TaskPanelComponent } from './components/task-panel/task-panel.component';
+import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,19 +48,19 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     CardProjecListComponent,
     ClientesCadastroComponent,
     MaskDirective,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    TaskPanelComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [
     ConstantsUrl
-    // { provide: HTTP_INTERCEPTORS,
-    //   useClass: AddHeaderInterceptorService,
-    //   multi: true }
   ],
   bootstrap: [AppComponent]
 })

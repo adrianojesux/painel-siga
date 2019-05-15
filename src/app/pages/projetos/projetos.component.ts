@@ -10,6 +10,8 @@ import Projeto from 'src/app/models/projeto';
 export class ProjetosComponent implements OnInit {
 
   listaProjetos: Projeto[] = [];
+  listaProjetosSaved: Projeto[] = [];
+  termSearch = '';
 
   constructor(
     private projectService: ProjetosService
@@ -23,7 +25,22 @@ export class ProjetosComponent implements OnInit {
     this.projectService.getAll()
       .subscribe((lista: Projeto[]) => {
         this.listaProjetos = lista;
-      })
+        this.listaProjetosSaved = lista;
+        console.log('LISTA DE PROJETOS --> ', this.listaProjetos);
+      });
+  }
+
+  submitSearch($event) {
+    console.log('SEARCH ==>', event, this.termSearch);
+    if (this.termSearch.trim() === '') {
+      this.listaProjetos = this.listaProjetosSaved;
+      return;
+    }
+    this.listaProjetos = this.listaProjetosSaved.filter((p) => p.title.toLowerCase().startsWith(this.termSearch.toLowerCase()));
+  }
+
+  onAddNew() {
+    console.log('onAddNew() called');
   }
 
 }

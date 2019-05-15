@@ -1,21 +1,25 @@
 <button class="btn btn-link card-lista" (click)="doAction($event)">
-    <div *ngIf="!isNew" class="avatar-item avatar">
-      <h2 class="sigla-item">AD</h2>
-    </div>
-    <div class="avatar-item" *ngIf="isNew">
-      <img src="assets/imgs/new.svg" width="50" alt="">
-    </div>
-    <div class="detail">
-      <h2 class="title-item">
-        Nome do projeto
-      </h2>
-      <p class="detail-sm">
-        Nome do Cliente
-      </p>
-    </div>
-    <div class="action">
-      <button class="btn btn-link" (click)="doAction($event)">
-        <img src="assets/imgs/eye.svg" width="30" alt="">
-      </button>
-    </div>
-  </button>
+  <div *ngIf="!isNew" class="avatar-item avatar">
+    <h2 class="sigla-item">{{ getSigla() }}</h2>
+  </div>
+  <div class="avatar-item" *ngIf="isNew">
+    <img src="assets/imgs/new.svg" width="50" alt="">
+  </div>
+  <div class="detail">
+    <h2 class="title-item">
+      {{ projectData.title }}
+    </h2>
+    <p class="detail-sm" *ngIf="projectData.cliente['name']">
+      {{ projectData.cliente['name'] }}
+    </p>
+    <p class="detail-sm" *ngIf="!projectData.cliente['name']">
+      {{ projectData.createdAt }}
+    </p>
+  </div>
+  <div class="action">
+    <button class="btn btn-link">
+      <img *ngIf="projectData.status" src="assets/imgs/hourglass.svg" width="30" alt="">
+      <img *ngIf="!projectData.status" src="assets/imgs/ray.svg" width="30" alt="">
+    </button>
+  </div>
+</button>

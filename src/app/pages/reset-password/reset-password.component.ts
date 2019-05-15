@@ -26,8 +26,6 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   doReset(form) {
-    // tslint:disable-next-line:member-ordering
-    debugger
     const password = form.value.password;
     const passwordConfirm = form.value['password-confirm'];
     if (password !== passwordConfirm) {

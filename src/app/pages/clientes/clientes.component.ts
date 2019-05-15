@@ -2,6 +2,7 @@ import { ClientsService } from './../../services/clients.service';
 import { Component, OnInit } from '@angular/core';
 import Cliente from 'src/app/models/clients';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-clientes',
@@ -12,12 +13,13 @@ export class ClientesComponent implements OnInit {
 
   listaClientes: Cliente[] = [];
   listaSaved: Cliente[] = [];
-  termSearch: string = '';
+  termSearch = '';
 
   constructor(
     private clientService: ClientsService,
-    private router: Router
-  ) { 
+    private router: Router,
+    private ngxSpinner: NgxSpinnerService
+  ) {
   }
 
   ngOnInit() {
@@ -26,23 +28,25 @@ export class ClientesComponent implements OnInit {
 
   submitSearch(form) {
     console.log(form);
-    if(this.termSearch.trim() == ""){
+    if (this.termSearch.trim() === '') {
       this.listaClientes = this.listaSaved;
-      return
+      return;
     }
-    this.listaClientes = this.listaClientes.filter((c) => { return c.name.startsWith(this.termSearch) });
+    this.listaClientes = this.listaClientes.filter((c) => c.name.toLowerCase().startsWith(this.termSearch.toLowerCase()) );
   }
 
-  onAddNew(){
+  onAddNew() {
     this.router.navigate(['/clients/cadastro']);
   }
 
   getList() {
+    this.ngxSpinner.show();
     this.clientService.getAll()
       .subscribe((lista: Cliente[]) => {
         this.listaClientes = lista;
         this.listaSaved = lista;
         console.log(lista);
+        this.ngxSpinner.hide();
       });
   }
 

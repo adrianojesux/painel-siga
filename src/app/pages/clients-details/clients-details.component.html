@@ -1,12 +1,17 @@
+<button type="button" class="btn">
+  <img src="./assets/imgs/arrow-back.svg" width="10" alt=""> Voltar
+</button>
 <div class="container">
   <div class="content-top">
+    <div class="row">
+    </div>
     <div class="row">
       <div class="col-2">
         <div *ngIf="cliente" class="avatar-item avatar">
           <h2 class="sigla-item">{{ getSigla() }}</h2>
         </div>
       </div>
-      <div class="col-10 line-name">
+      <div class="col-10 line-name" *ngIf="cliente">
         <h1 class="title-page">{{ cliente.name }}</h1>
         <h2 class="title-session">Telefone: {{ cliente.phone }}</h2>
         <h2 class="title-session">Email: {{ cliente.email }}</h2>
@@ -14,13 +19,17 @@
       </div>
     </div>
   </div>
-  <hr>
 
   <div class="row">
-    <h2 class="title-session">+ Infográfico</h2>
+    <div class="btn-group">
+      <button type="button" (click)="changeView(true)" class="btn cw-btn-red">Infográfico</button>
+      <button type="button" (click)="changeView(false)" [hidden]="projects.length == 0"
+        class="btn cw-btn-red">Projetos</button>
+    </div>
   </div>
   <br>
-  <div class="row">
+  <hr>
+  <div class="row" [hidden]="!infografico">
     <div class="col-md-6" [hidden]="!chart1">
       <canvas id="canvas">{{ chart1 }}</canvas>
     </div>
@@ -31,8 +40,17 @@
       <canvas id="pie" height="500" width="500">{{ chart3 }}</canvas>
     </div>
   </div>
+  <div class="container" [hidden]="infografico">
+    <div class="container">
+      <div class="row">
+        <button (click)="onAddNew()" class="btn btn-link">
+          <img src="assets/imgs/add-button.svg" width="50" alt=""> PROJETO
+        </button>
+      </div>
+    </div>
+    <app-card-projec-list *ngFor="let p of projects" [projectData]="p"></app-card-projec-list>
+  </div>
 
-  <hr>
 
 
 </div>
